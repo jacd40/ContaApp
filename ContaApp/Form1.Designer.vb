@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form1
+Partial Class formLibroDiario
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -139,7 +139,7 @@ Partial Class Form1
         Me.dgvDatos.Size = New System.Drawing.Size(551, 190)
         Me.dgvDatos.TabIndex = 14
         '
-        'Form1
+        'formLibroDiario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -156,8 +156,8 @@ Partial Class Form1
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtfecha)
         Me.Controls.Add(Me.lbfecha)
-        Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Name = "formLibroDiario"
+        Me.Text = "Libro de Diario"
         CType(Me.dgvDatos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

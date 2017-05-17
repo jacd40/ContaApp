@@ -1,4 +1,4 @@
-﻿Public Class Form1
+﻿Public Class formLibroDiario
     Dim Partidas As New ArrayList()
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
