@@ -26,5 +26,12 @@
         dgvDatos.Columns(3).HeaderText = "HABER"
         dgvDatos.Columns(3).Width = 100
 
+
+        cmbtransaccion.Items.Add("CARGAR")
+        cmbtransaccion.Items.Add("ABONAR")
+    End Sub
+
+    Private Sub btnagregar_Click(sender As Object, e As EventArgs) Handles btnagregar.Click
+
     End Sub
 End Class

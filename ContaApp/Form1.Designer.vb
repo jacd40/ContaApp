@@ -40,7 +40,7 @@ Partial Class Form1
         'lbfecha
         '
         Me.lbfecha.AutoSize = True
-        Me.lbfecha.Location = New System.Drawing.Point(12, 9)
+        Me.lbfecha.Location = New System.Drawing.Point(60, 19)
         Me.lbfecha.Name = "lbfecha"
         Me.lbfecha.Size = New System.Drawing.Size(40, 13)
         Me.lbfecha.TabIndex = 3
@@ -48,7 +48,7 @@ Partial Class Form1
         '
         'txtfecha
         '
-        Me.txtfecha.Location = New System.Drawing.Point(15, 26)
+        Me.txtfecha.Location = New System.Drawing.Point(109, 19)
         Me.txtfecha.Name = "txtfecha"
         Me.txtfecha.Size = New System.Drawing.Size(87, 20)
         Me.txtfecha.TabIndex = 4
@@ -56,7 +56,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(15, 53)
+        Me.Label1.Location = New System.Drawing.Point(60, 63)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(43, 13)
         Me.Label1.TabIndex = 5
@@ -64,7 +64,7 @@ Partial Class Form1
         '
         'txtcodigo
         '
-        Me.txtcodigo.Location = New System.Drawing.Point(64, 53)
+        Me.txtcodigo.Location = New System.Drawing.Point(109, 63)
         Me.txtcodigo.Name = "txtcodigo"
         Me.txtcodigo.Size = New System.Drawing.Size(87, 20)
         Me.txtcodigo.TabIndex = 6
@@ -72,7 +72,7 @@ Partial Class Form1
         'lbcuenta
         '
         Me.lbcuenta.AutoSize = True
-        Me.lbcuenta.Location = New System.Drawing.Point(171, 53)
+        Me.lbcuenta.Location = New System.Drawing.Point(216, 63)
         Me.lbcuenta.Name = "lbcuenta"
         Me.lbcuenta.Size = New System.Drawing.Size(44, 13)
         Me.lbcuenta.TabIndex = 7
@@ -81,14 +81,14 @@ Partial Class Form1
         'cmbcuenta
         '
         Me.cmbcuenta.FormattingEnabled = True
-        Me.cmbcuenta.Location = New System.Drawing.Point(221, 50)
+        Me.cmbcuenta.Location = New System.Drawing.Point(266, 60)
         Me.cmbcuenta.Name = "cmbcuenta"
         Me.cmbcuenta.Size = New System.Drawing.Size(258, 21)
         Me.cmbcuenta.TabIndex = 8
         '
         'txtmonto
         '
-        Me.txtmonto.Location = New System.Drawing.Point(64, 89)
+        Me.txtmonto.Location = New System.Drawing.Point(109, 99)
         Me.txtmonto.Name = "txtmonto"
         Me.txtmonto.Size = New System.Drawing.Size(87, 20)
         Me.txtmonto.TabIndex = 10
@@ -96,7 +96,7 @@ Partial Class Form1
         'lbmonto
         '
         Me.lbmonto.AutoSize = True
-        Me.lbmonto.Location = New System.Drawing.Point(15, 89)
+        Me.lbmonto.Location = New System.Drawing.Point(60, 99)
         Me.lbmonto.Name = "lbmonto"
         Me.lbmonto.Size = New System.Drawing.Size(40, 13)
         Me.lbmonto.TabIndex = 9
@@ -105,7 +105,7 @@ Partial Class Form1
         'lbtransaccion
         '
         Me.lbtransaccion.AutoSize = True
-        Me.lbtransaccion.Location = New System.Drawing.Point(171, 89)
+        Me.lbtransaccion.Location = New System.Drawing.Point(216, 99)
         Me.lbtransaccion.Name = "lbtransaccion"
         Me.lbtransaccion.Size = New System.Drawing.Size(69, 13)
         Me.lbtransaccion.TabIndex = 11
@@ -113,15 +113,18 @@ Partial Class Form1
         '
         'cmbtransaccion
         '
+        Me.cmbtransaccion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append
+        Me.cmbtransaccion.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cmbtransaccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbtransaccion.FormattingEnabled = True
-        Me.cmbtransaccion.Location = New System.Drawing.Point(246, 89)
+        Me.cmbtransaccion.Location = New System.Drawing.Point(291, 99)
         Me.cmbtransaccion.Name = "cmbtransaccion"
         Me.cmbtransaccion.Size = New System.Drawing.Size(121, 21)
         Me.cmbtransaccion.TabIndex = 12
         '
         'btnagregar
         '
-        Me.btnagregar.Location = New System.Drawing.Point(394, 89)
+        Me.btnagregar.Location = New System.Drawing.Point(439, 99)
         Me.btnagregar.Name = "btnagregar"
         Me.btnagregar.Size = New System.Drawing.Size(75, 23)
         Me.btnagregar.TabIndex = 13
