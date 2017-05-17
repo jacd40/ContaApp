@@ -1,4 +1,5 @@
 ﻿Public Class Form1
+    Dim Partidas As New ArrayList()
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
 
@@ -32,6 +33,8 @@
     End Sub
 
     Private Sub btnagregar_Click(sender As Object, e As EventArgs) Handles btnagregar.Click
+        Dim movimientos As New ArrayList()
+        'movimientos.Add()
 
     End Sub
 End Class
