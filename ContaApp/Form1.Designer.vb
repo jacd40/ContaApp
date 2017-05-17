@@ -33,6 +33,8 @@ Partial Class Form1
         Me.lbtransaccion = New System.Windows.Forms.Label()
         Me.cmbtransaccion = New System.Windows.Forms.ComboBox()
         Me.btnagregar = New System.Windows.Forms.Button()
+        Me.dgvDatos = New System.Windows.Forms.DataGridView()
+        CType(Me.dgvDatos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lbfecha
@@ -126,11 +128,20 @@ Partial Class Form1
         Me.btnagregar.Text = "Agregar"
         Me.btnagregar.UseVisualStyleBackColor = True
         '
+        'dgvDatos
+        '
+        Me.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvDatos.Location = New System.Drawing.Point(24, 147)
+        Me.dgvDatos.Name = "dgvDatos"
+        Me.dgvDatos.Size = New System.Drawing.Size(551, 190)
+        Me.dgvDatos.TabIndex = 14
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(491, 318)
+        Me.ClientSize = New System.Drawing.Size(613, 349)
+        Me.Controls.Add(Me.dgvDatos)
         Me.Controls.Add(Me.btnagregar)
         Me.Controls.Add(Me.cmbtransaccion)
         Me.Controls.Add(Me.lbtransaccion)
@@ -144,6 +155,7 @@ Partial Class Form1
         Me.Controls.Add(Me.lbfecha)
         Me.Name = "Form1"
         Me.Text = "Form1"
+        CType(Me.dgvDatos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -159,5 +171,6 @@ Partial Class Form1
     Friend WithEvents lbtransaccion As System.Windows.Forms.Label
     Friend WithEvents cmbtransaccion As System.Windows.Forms.ComboBox
     Friend WithEvents btnagregar As System.Windows.Forms.Button
+    Friend WithEvents dgvDatos As System.Windows.Forms.DataGridView
 
 End Class
