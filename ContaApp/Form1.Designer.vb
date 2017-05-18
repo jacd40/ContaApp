@@ -25,7 +25,6 @@ Partial Class formLibroDiario
         Me.lbfecha = New System.Windows.Forms.Label()
         Me.txtfecha = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtcodigo = New System.Windows.Forms.TextBox()
         Me.lbcuenta = New System.Windows.Forms.Label()
         Me.cmbcuenta = New System.Windows.Forms.ComboBox()
         Me.txtmonto = New System.Windows.Forms.TextBox()
@@ -34,6 +33,7 @@ Partial Class formLibroDiario
         Me.cmbtransaccion = New System.Windows.Forms.ComboBox()
         Me.btnagregar = New System.Windows.Forms.Button()
         Me.dgvDatos = New System.Windows.Forms.DataGridView()
+        Me.cmbcodigo = New System.Windows.Forms.ComboBox()
         CType(Me.dgvDatos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -62,13 +62,6 @@ Partial Class formLibroDiario
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Codigo:"
         '
-        'txtcodigo
-        '
-        Me.txtcodigo.Location = New System.Drawing.Point(109, 63)
-        Me.txtcodigo.Name = "txtcodigo"
-        Me.txtcodigo.Size = New System.Drawing.Size(87, 20)
-        Me.txtcodigo.TabIndex = 6
-        '
         'lbcuenta
         '
         Me.lbcuenta.AutoSize = True
@@ -80,6 +73,9 @@ Partial Class formLibroDiario
         '
         'cmbcuenta
         '
+        Me.cmbcuenta.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append
+        Me.cmbcuenta.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cmbcuenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbcuenta.FormattingEnabled = True
         Me.cmbcuenta.Location = New System.Drawing.Point(266, 60)
         Me.cmbcuenta.Name = "cmbcuenta"
@@ -139,11 +135,23 @@ Partial Class formLibroDiario
         Me.dgvDatos.Size = New System.Drawing.Size(551, 190)
         Me.dgvDatos.TabIndex = 14
         '
+        'cmbcodigo
+        '
+        Me.cmbcodigo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append
+        Me.cmbcodigo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cmbcodigo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbcodigo.FormattingEnabled = True
+        Me.cmbcodigo.Location = New System.Drawing.Point(110, 59)
+        Me.cmbcodigo.Name = "cmbcodigo"
+        Me.cmbcodigo.Size = New System.Drawing.Size(86, 21)
+        Me.cmbcodigo.TabIndex = 15
+        '
         'formLibroDiario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(613, 349)
+        Me.Controls.Add(Me.cmbcodigo)
         Me.Controls.Add(Me.dgvDatos)
         Me.Controls.Add(Me.btnagregar)
         Me.Controls.Add(Me.cmbtransaccion)
@@ -152,7 +160,6 @@ Partial Class formLibroDiario
         Me.Controls.Add(Me.lbmonto)
         Me.Controls.Add(Me.cmbcuenta)
         Me.Controls.Add(Me.lbcuenta)
-        Me.Controls.Add(Me.txtcodigo)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtfecha)
         Me.Controls.Add(Me.lbfecha)
@@ -166,7 +173,6 @@ Partial Class formLibroDiario
     Friend WithEvents lbfecha As System.Windows.Forms.Label
     Friend WithEvents txtfecha As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents txtcodigo As System.Windows.Forms.TextBox
     Friend WithEvents lbcuenta As System.Windows.Forms.Label
     Friend WithEvents cmbcuenta As System.Windows.Forms.ComboBox
     Friend WithEvents txtmonto As System.Windows.Forms.TextBox
@@ -175,5 +181,6 @@ Partial Class formLibroDiario
     Friend WithEvents cmbtransaccion As System.Windows.Forms.ComboBox
     Friend WithEvents btnagregar As System.Windows.Forms.Button
     Friend WithEvents dgvDatos As System.Windows.Forms.DataGridView
+    Friend WithEvents cmbcodigo As System.Windows.Forms.ComboBox
 
 End Class
