@@ -34,6 +34,8 @@ Partial Class formLibroDiario
         Me.btnagregar = New System.Windows.Forms.Button()
         Me.dgvDatos = New System.Windows.Forms.DataGridView()
         Me.cmbcodigo = New System.Windows.Forms.ComboBox()
+        Me.btnborrar = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.dgvDatos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -130,6 +132,7 @@ Partial Class formLibroDiario
         'dgvDatos
         '
         Me.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvDatos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
         Me.dgvDatos.Location = New System.Drawing.Point(24, 147)
         Me.dgvDatos.Name = "dgvDatos"
         Me.dgvDatos.Size = New System.Drawing.Size(551, 190)
@@ -146,11 +149,31 @@ Partial Class formLibroDiario
         Me.cmbcodigo.Size = New System.Drawing.Size(86, 21)
         Me.cmbcodigo.TabIndex = 15
         '
+        'btnborrar
+        '
+        Me.btnborrar.Location = New System.Drawing.Point(520, 99)
+        Me.btnborrar.Name = "btnborrar"
+        Me.btnborrar.Size = New System.Drawing.Size(75, 23)
+        Me.btnborrar.TabIndex = 16
+        Me.btnborrar.Text = "Borrar"
+        Me.btnborrar.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(24, 370)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(39, 13)
+        Me.Label2.TabIndex = 17
+        Me.Label2.Text = "Label2"
+        '
         'formLibroDiario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(613, 349)
+        Me.ClientSize = New System.Drawing.Size(613, 395)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.btnborrar)
         Me.Controls.Add(Me.cmbcodigo)
         Me.Controls.Add(Me.dgvDatos)
         Me.Controls.Add(Me.btnagregar)
@@ -182,5 +205,7 @@ Partial Class formLibroDiario
     Friend WithEvents btnagregar As System.Windows.Forms.Button
     Friend WithEvents dgvDatos As System.Windows.Forms.DataGridView
     Friend WithEvents cmbcodigo As System.Windows.Forms.ComboBox
+    Friend WithEvents btnborrar As System.Windows.Forms.Button
+    Friend WithEvents Label2 As System.Windows.Forms.Label
 
 End Class
