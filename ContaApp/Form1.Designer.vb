@@ -22,6 +22,7 @@ Partial Class formLibroDiario
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(formLibroDiario))
         Me.lbfecha = New System.Windows.Forms.Label()
         Me.txtfecha = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -35,14 +36,20 @@ Partial Class formLibroDiario
         Me.dgvDatos = New System.Windows.Forms.DataGridView()
         Me.cmbcodigo = New System.Windows.Forms.ComboBox()
         Me.btnborrar = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lbcomentario = New System.Windows.Forms.Label()
+        Me.txtcomentario = New System.Windows.Forms.TextBox()
+        Me.btnguardar = New System.Windows.Forms.Button()
+        Me.btncancelar = New System.Windows.Forms.Button()
+        Me.lbPartida = New System.Windows.Forms.Label()
+        Me.lbcontpartida = New System.Windows.Forms.Label()
+        Me.btnexport = New System.Windows.Forms.Button()
         CType(Me.dgvDatos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lbfecha
         '
         Me.lbfecha.AutoSize = True
-        Me.lbfecha.Location = New System.Drawing.Point(60, 19)
+        Me.lbfecha.Location = New System.Drawing.Point(60, 12)
         Me.lbfecha.Name = "lbfecha"
         Me.lbfecha.Size = New System.Drawing.Size(40, 13)
         Me.lbfecha.TabIndex = 3
@@ -50,7 +57,7 @@ Partial Class formLibroDiario
         '
         'txtfecha
         '
-        Me.txtfecha.Location = New System.Drawing.Point(109, 19)
+        Me.txtfecha.Location = New System.Drawing.Point(109, 12)
         Me.txtfecha.Name = "txtfecha"
         Me.txtfecha.Size = New System.Drawing.Size(87, 20)
         Me.txtfecha.TabIndex = 4
@@ -158,21 +165,84 @@ Partial Class formLibroDiario
         Me.btnborrar.Text = "Borrar"
         Me.btnborrar.UseVisualStyleBackColor = True
         '
-        'Label2
+        'lbcomentario
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(24, 370)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(39, 13)
-        Me.Label2.TabIndex = 17
-        Me.Label2.Text = "Label2"
+        Me.lbcomentario.AutoSize = True
+        Me.lbcomentario.Location = New System.Drawing.Point(21, 359)
+        Me.lbcomentario.Name = "lbcomentario"
+        Me.lbcomentario.Size = New System.Drawing.Size(63, 13)
+        Me.lbcomentario.TabIndex = 17
+        Me.lbcomentario.Text = "Comentario:"
+        '
+        'txtcomentario
+        '
+        Me.txtcomentario.Location = New System.Drawing.Point(90, 359)
+        Me.txtcomentario.Multiline = True
+        Me.txtcomentario.Name = "txtcomentario"
+        Me.txtcomentario.Size = New System.Drawing.Size(291, 44)
+        Me.txtcomentario.TabIndex = 18
+        '
+        'btnguardar
+        '
+        Me.btnguardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnguardar.Location = New System.Drawing.Point(408, 347)
+        Me.btnguardar.Name = "btnguardar"
+        Me.btnguardar.Size = New System.Drawing.Size(89, 36)
+        Me.btnguardar.TabIndex = 19
+        Me.btnguardar.Text = "Guardar"
+        Me.btnguardar.UseVisualStyleBackColor = True
+        '
+        'btncancelar
+        '
+        Me.btncancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btncancelar.Location = New System.Drawing.Point(506, 347)
+        Me.btncancelar.Name = "btncancelar"
+        Me.btncancelar.Size = New System.Drawing.Size(89, 36)
+        Me.btncancelar.TabIndex = 20
+        Me.btncancelar.Text = "Cancelar"
+        Me.btncancelar.UseVisualStyleBackColor = True
+        '
+        'lbPartida
+        '
+        Me.lbPartida.AutoSize = True
+        Me.lbPartida.Location = New System.Drawing.Point(436, 19)
+        Me.lbPartida.Name = "lbPartida"
+        Me.lbPartida.Size = New System.Drawing.Size(43, 13)
+        Me.lbPartida.TabIndex = 21
+        Me.lbPartida.Text = "Partida:"
+        '
+        'lbcontpartida
+        '
+        Me.lbcontpartida.AutoSize = True
+        Me.lbcontpartida.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbcontpartida.ForeColor = System.Drawing.Color.Red
+        Me.lbcontpartida.Location = New System.Drawing.Point(485, 14)
+        Me.lbcontpartida.Name = "lbcontpartida"
+        Me.lbcontpartida.Size = New System.Drawing.Size(19, 20)
+        Me.lbcontpartida.TabIndex = 22
+        Me.lbcontpartida.Text = "0"
+        '
+        'btnexport
+        '
+        Me.btnexport.Image = CType(resources.GetObject("btnexport.Image"), System.Drawing.Image)
+        Me.btnexport.Location = New System.Drawing.Point(474, 389)
+        Me.btnexport.Name = "btnexport"
+        Me.btnexport.Size = New System.Drawing.Size(50, 46)
+        Me.btnexport.TabIndex = 23
+        Me.btnexport.UseVisualStyleBackColor = True
         '
         'formLibroDiario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(613, 395)
-        Me.Controls.Add(Me.Label2)
+        Me.ClientSize = New System.Drawing.Size(620, 435)
+        Me.Controls.Add(Me.btnexport)
+        Me.Controls.Add(Me.lbcontpartida)
+        Me.Controls.Add(Me.lbPartida)
+        Me.Controls.Add(Me.btncancelar)
+        Me.Controls.Add(Me.btnguardar)
+        Me.Controls.Add(Me.txtcomentario)
+        Me.Controls.Add(Me.lbcomentario)
         Me.Controls.Add(Me.btnborrar)
         Me.Controls.Add(Me.cmbcodigo)
         Me.Controls.Add(Me.dgvDatos)
@@ -206,6 +276,12 @@ Partial Class formLibroDiario
     Friend WithEvents dgvDatos As System.Windows.Forms.DataGridView
     Friend WithEvents cmbcodigo As System.Windows.Forms.ComboBox
     Friend WithEvents btnborrar As System.Windows.Forms.Button
-    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents lbcomentario As System.Windows.Forms.Label
+    Friend WithEvents txtcomentario As System.Windows.Forms.TextBox
+    Friend WithEvents btnguardar As System.Windows.Forms.Button
+    Friend WithEvents btncancelar As System.Windows.Forms.Button
+    Friend WithEvents lbPartida As System.Windows.Forms.Label
+    Friend WithEvents lbcontpartida As System.Windows.Forms.Label
+    Friend WithEvents btnexport As System.Windows.Forms.Button
 
 End Class

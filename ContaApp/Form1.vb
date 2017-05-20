@@ -1,9 +1,13 @@
 ﻿Public Class formLibroDiario
     Dim Partidas As New ArrayList()
+    Dim movimientos As New ArrayList()
     Dim partida As New Hashtable()
+    Dim movimiento As New Hashtable()
     Dim DebeTotal As Double = 0
     Dim HaberTotal As Double = 0
     Dim ContMovs As Integer = 0
+    Dim ContPartida As Integer = 1
+    Dim fecha As Date
     Private Sub Button1_Click(sender As Object, e As EventArgs)
 
     End Sub
@@ -33,7 +37,7 @@
 
         cmbtransaccion.Items.Add("CARGAR")
         cmbtransaccion.Items.Add("ABONAR")
-
+        lbcontpartida.Text = ContPartida
         'cmbcodigo.Items.Add("1105")
         'mbcuenta.Items.Add("Caja")
         llenarCombos()
@@ -42,16 +46,12 @@
     End Sub
 
     Private Sub btnagregar_Click(sender As Object, e As EventArgs) Handles btnagregar.Click
-        Dim movimientos As New Hashtable()
         Dim codigo As String
         Dim cuenta As String
         Dim monto As Double
         Dim debe As Double
         Dim haber As Double
-          If (txtfecha.Text = "" Or txtfecha.Text.Trim = Nothing) Then
-                MsgBox("Debe ingresar una fecha")
-                Return
-            End If
+          
             If (cmbcodigo.SelectedIndex = -1) Then
             MsgBox("Debe ingresar un valor en el codigo")
             Return
@@ -77,11 +77,7 @@
         Else
             haber = monto
         End If
-            movimientos.Add("CODIGO", codigo)
-            movimientos.Add("CUENTA", cuenta)
-            movimientos.Add("DEBE", debe)
-        movimientos.Add("HABER", haber)
-
+           
 
         dgvDatos.Rows(ContMovs).Cells(0).Value = codigo
         dgvDatos.Rows(ContMovs).Cells(0).ReadOnly = True
@@ -97,7 +93,7 @@
             dgvDatos.Rows(ContMovs).Cells(3).Value = haber
 
 
-
+        
         ContMovs = ContMovs + 1
         cmbcodigo.SelectedIndex = -1
         cmbcuenta.SelectedIndex = -1
@@ -123,30 +119,22 @@
         cmbcuenta.Items.Add("ACTIVO CORRIENTE")
         cmbcodigo.Items.Add("1.1.1.")
         cmbcuenta.Items.Add("CAJA, BANCOS")
-        cmbcodigo.Items.Add("1.1.1.01")
-        cmbcuenta.Items.Add("CAJA CHICA QUITO")
-        cmbcodigo.Items.Add("1.1.1.02")
-        cmbcuenta.Items.Add("CAJA CHICA GUAYAQUIL")
         cmbcodigo.Items.Add("1.1.1.10")
         cmbcuenta.Items.Add("CAJA GENERAL")
         cmbcodigo.Items.Add("1.1.1.20")
         cmbcuenta.Items.Add("CUENTA CONTROL")
         cmbcodigo.Items.Add("1.1.1.21")
-        cmbcuenta.Items.Add("BANCO DEL PICHINCHA C.C. 20735-4")
+        cmbcuenta.Items.Add("BANCO GYT")
         cmbcodigo.Items.Add("1.1.1.22")
-        cmbcuenta.Items.Add("BANCO DEL PACIFICO")
+        cmbcuenta.Items.Add("BANCO INDUSTRIAL")
         cmbcodigo.Items.Add("1.1.1.23")
-        cmbcuenta.Items.Add("BANCO DE GUAYAQUIL")
+        cmbcuenta.Items.Add("BANCO AGROMERCANTIL")
         cmbcodigo.Items.Add("1.1.2.")
         cmbcuenta.Items.Add("CTAS Y DTOS X COB CLIENTES")
         cmbcodigo.Items.Add("1.1.2.01")
-        cmbcuenta.Items.Add("CLIENTES QUITO")
+        cmbcuenta.Items.Add("CLIENTES CIUDAD")
         cmbcodigo.Items.Add("1.1.2.02")
-        cmbcuenta.Items.Add("CLIENTES GUAYAQUIL")
-        cmbcodigo.Items.Add("1.1.2.03")
-        cmbcuenta.Items.Add("CLIENTES CUENCA")
-        cmbcodigo.Items.Add("1.1.2.04")
-        cmbcuenta.Items.Add("CLIENTES MANTA")
+        cmbcuenta.Items.Add("CLIENTES INTERIOR")
         cmbcodigo.Items.Add("1.1.3.")
         cmbcuenta.Items.Add("(-)PROV CTAS INCOBRABLES")
         cmbcodigo.Items.Add("1.1.3.01")
@@ -426,11 +414,127 @@
 
 
 
+
+
+
     End Sub
 
     Private Sub btnborrar_Click(sender As Object, e As EventArgs) Handles btnborrar.Click
         If Not dgvDatos.CurrentRow.IsNewRow Then
             dgvDatos.Rows.Remove(dgvDatos.CurrentRow)
+            ContMovs = ContMovs - 1
+        End If
+    End Sub
+
+    Private Sub btnguardar_Click(sender As Object, e As EventArgs) Handles btnguardar.Click
+        DebeTotal = 0
+        HaberTotal = 0
+        If (txtfecha.Text = "" Or txtfecha.Text.Trim = Nothing) Then
+            MsgBox("Debe ingresar una fecha para guardar la partida")
+            Return
+        End If
+        If (txtcomentario.Text = "" Or txtcomentario.Text.Trim = Nothing) Then
+            MsgBox("Debe ingresar un comentario para guardar la partida")
+            Return
+        End If
+        Try
+            fecha = Convert.ToDateTime(txtfecha.Text.Trim)
+            Console.WriteLine("'{0}' converts to {1}.", txtfecha.Text.Trim, fecha)
+        Catch ex As FormatException
+            Console.WriteLine(ex.Message)
+            MsgBox("Debe ingresar un formato de fecha correcto")
+            Return
+        End Try
+
+        For index As Integer = 0 To (ContMovs - 1)
+            DebeTotal = DebeTotal + dgvDatos.Rows(index).Cells(2).Value
+            HaberTotal = HaberTotal + dgvDatos.Rows(index).Cells(3).Value
+        Next
+
+        Console.WriteLine("DebeTotal:" & DebeTotal)
+        Console.WriteLine("HaberTotal:" & HaberTotal)
+        If (DebeTotal <> HaberTotal) Then
+            MsgBox("La partida no esta cuadrada, debe cuadrarla para guardar")
+            Return
+        End If
+
+        For index As Integer = 0 To (ContMovs - 1)
+            movimiento.Add("CODIGO", dgvDatos.Rows(index).Cells(0).Value)
+            movimiento.Add("CUENTA", dgvDatos.Rows(index).Cells(1).Value)
+            movimiento.Add("DEBE", dgvDatos.Rows(index).Cells(2).Value)
+            movimiento.Add("HABER", dgvDatos.Rows(index).Cells(3).Value)
+            movimientos.Add(movimiento)
+            movimiento.Clear()
+        Next
+        ContPartida = ContPartida + 1
+        lbcontpartida.Text = ContPartida
+        partida.Add("FECHA", fecha)
+        partida.Add("MOVIMIENTOS", movimientos)
+        partida.Add("COMENTARIO", txtcomentario.Text.Trim)
+        partida.Add("DEBETOTAL", DebeTotal)
+        partida.Add("HABERTOTAL", HaberTotal)
+
+        Partidas.Add(partida)
+
+        ContMovs = 0
+        partida.Clear()
+        movimientos.Clear()
+        dgvDatos.Rows.Clear()
+        dgvDatos.RowCount = 30
+        txtfecha.Text = Nothing
+        txtcomentario.Text = Nothing
+
+    End Sub
+
+    Private Sub btncancelar_Click(sender As Object, e As EventArgs) Handles btncancelar.Click
+        ContMovs = 0
+        partida.Clear()
+        movimientos.Clear()
+        dgvDatos.Rows.Clear()
+        dgvDatos.RowCount = 30
+        txtfecha.Text = Nothing
+
+        cmbcodigo.SelectedIndex = -1
+        cmbcuenta.SelectedIndex = -1
+        cmbtransaccion.SelectedIndex = -1
+       txtmonto.Text = Nothing
+
+    End Sub
+
+    Private Sub btnexport_Click(sender As Object, e As EventArgs) Handles btnexport.Click
+        ' Displays a SaveFileDialog so the user can save the Image
+        ' assigned to Button2.
+        Dim saveFileDialog1 As New SaveFileDialog()
+        saveFileDialog1.Filter = "Excel |*.xlsx"
+        saveFileDialog1.Title = "Save an Excel File"
+        saveFileDialog1.ShowDialog()
+
+        ' If the file name is not an empty string open it for saving.
+        If saveFileDialog1.FileName <> "" Then
+              Console.WriteLine("ruta: "&saveFileDialog1.FileName)
+
+
+            ' Saves the Image via a FileStream created by the OpenFile method.
+            ' Dim fs As System.IO.FileStream = CType _
+            ' (saveFileDialog1.OpenFile(), System.IO.FileStream)
+            ' Saves the Image in the appropriate ImageFormat based upon the
+            ' file type selected in the dialog box.
+            ' NOTE that the FilterIndex property is one-based.
+            '  Select Case saveFileDialog1.FilterIndex
+            '   Case 1
+            ' Me.button2.Image.Save(fs, _
+            ' System.Drawing.Imaging.ImageFormat.Jpeg)
+
+            '   Case 2
+            ' Me.button2.Image.Save(fs, _
+            ' System.Drawing.Imaging.ImageFormat.Bmp)
+
+            ' Case 3
+            '  Me.button2.Image.Save(fs, _
+            ' System.Drawing.Imaging.ImageFormat.Gif)
+            ' End Select
+
+            'fs.Close()
         End If
     End Sub
 End Class
